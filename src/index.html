@@ -7,13 +7,32 @@
         <title>Auction House</title>
     </head>
     <body>
-        <div id="app">
+        <header class="site-header">
+            <div class="header-container">
+                <a href="branding">The Auction House</a>
+                <nav aria-label="main">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Listings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/auth/login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/auth/register.html">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile/index.html">Profile</a>
+                    </li>
+                </nav>
+            </div>
+        </header>
+        <main id="main-content">
             <h1>All listings</h1>
-            <a href="/">Home</a>
-            <a href="/auth/login.html">Login</a>
-            <a href="/auth/register.html">Register</a>
-            <a href="/listing/index.html">Single listing</a>
-        </div>
+        </main>
+        <footer class="site-footer">
+            <p class="copyright">&copy;<span>2023</span> The Auction House</p>
+        </footer>
+        <div id="toast-container"></div>
         <script type="module" src="/js/main.js"></script>
         <script type="module" src="/js/pages/index.js"></script>
     </body>

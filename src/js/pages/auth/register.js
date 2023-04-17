@@ -1,7 +1,9 @@
 import { register } from '../../api/auth/register';
+import { isLoggedIn, redirect } from '../../utils.js';
+
+if (isLoggedIn()) redirect('/index.html');
 
 const registerForm = document.querySelector('#register-form');
-
 registerForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
