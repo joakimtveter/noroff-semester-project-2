@@ -1,5 +1,5 @@
 import { BASE_URL } from '../../client.js';
-import { showToast } from '../../utils.js';
+import { showToast, redirect } from '../../utils.js';
 
 /**
  * Logs in user and sets userobjet in localStorage.
@@ -7,7 +7,7 @@ import { showToast } from '../../utils.js';
  * @param {string} password
  * @returns {Promise<void>} - Returns nothing, redirects to main feed on success or triggers a error toast on error.
  */
-async function logIn(email, password) {
+async function login(email, password) {
     try {
         const response = await fetch(`${BASE_URL}/auth/login`, {
             method: 'POST',
@@ -24,11 +24,11 @@ async function logIn(email, password) {
         const { accessToken, ...user } = data;
         localStorage.setItem('token', accessToken);
         localStorage.setItem('user', JSON.stringify(user));
-        window.location.pathname = '/posts/index.html';
+        redirect('/index.html');
     } catch (error) {
         console.error(error);
         showToast(error, 'error');
     }
 }
 
-export { logIn };
+export { login };
