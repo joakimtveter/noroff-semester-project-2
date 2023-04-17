@@ -23,4 +23,7 @@ export default defineConfig({
             },
         },
     },
+    test: {
+        // configure the test environment?
+    },
 });
