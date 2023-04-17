@@ -1,5 +1,5 @@
-import { showToast } from '../../utils.js';
-import { BASE_URL } from '../../client.js';
+import { showToast, redirect } from '../../utils';
+import { BASE_URL } from '../../client';
 /**
  * Registers a new user and redirects to login.html
  * @param {string} name
@@ -22,9 +22,7 @@ async function register(name, email, password) {
         }
         const data = await response.json();
         showToast(`${data.name} have successfully registered`, 'success');
-        setTimeout(() => {
-            window.location.pathname = 'login.html';
-        }, 2000);
+        redirect('/auth/login.html', 3000);
     } catch (error) {
         console.error(error);
         showToast(error, 'error');
