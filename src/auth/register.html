@@ -4,12 +4,78 @@
         <meta charset="UTF-8" />
         <link rel="icon" type="image/svg+xml" href="/vite.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Auction House</title>
+        <title>Register | The Auction House</title>
     </head>
     <body>
-        <div id="app">
-            <h1>Register</h1>
-        </div>
+        <header class="site-header">
+            <div class="header-container">
+                <a href="branding">The Auction House</a>
+                <nav aria-label="main">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Listings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/auth/login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/auth/register.html">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile/index.html">Profile</a>
+                    </li>
+                </nav>
+            </div>
+        </header>
+        <main id="main-content">
+            <div class="form-container">
+                <h1>Create your account</h1>
+                <form id="register-form" novalidate>
+                    <div class="form-control">
+                        <label id="name-label" for="name">Name:</label>
+                        <input
+                            id="name"
+                            type="text"
+                            name="name"
+                            placeholder="Name"
+                            aria-labelledby="name-label"
+                            required
+                        />
+                    </div>
+                    <div class="form-control">
+                        <label id="email-label" for="email">Email:</label>
+                        <input
+                            id="email"
+                            type="email"
+                            name="email"
+                            placeholder="Email"
+                            aria-labelledby="email-label"
+                            required
+                        />
+                    </div>
+                    <div class="form-control">
+                        <label id="password-label" for="password">Password:</label>
+                        <input
+                            id="password"
+                            type="password"
+                            name="password"
+                            placeholder="Password"
+                            aria-labelledby="password-label"
+                            required
+                        />
+                    </div>
+                    <div class="form-control">
+                        <button id="register-button" type="submit" class="button contained primary">
+                            Create account
+                        </button>
+                        <a href="/login.html">I have already have an account, sign in.</a>
+                    </div>
+                </form>
+            </div>
+        </main>
+        <footer class="site-footer">
+            <p class="copyright">&copy;<span>2023</span> The Auction House</p>
+        </footer>
+        <div id="toast-container"></div>
         <script type="module" src="/js/main.js"></script>
         <script type="module" src="/js/pages/auth/register.js"></script>
     </body>
