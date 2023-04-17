@@ -1,4 +1,7 @@
 import { login } from '../../api/auth/login';
+import { isLoggedIn, redirect } from '../../utils.js';
+
+if (isLoggedIn()) redirect('/index.html');
 
 const loginForm = document.querySelector('#login-form');
 loginForm.addEventListener('submit', (e) => {
