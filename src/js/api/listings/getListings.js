@@ -1,4 +1,3 @@
-import { BASE_URL } from '../../client';
 import { get } from '../get';
 
 function getListings() {
