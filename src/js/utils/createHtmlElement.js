@@ -4,7 +4,7 @@
  * @param {string} [className] - Class name of the element
  * @param {string} [content] - Inner text of the element
  * @param {object} [atributtes] - Object with the element's attributes
- * @returns - Returns the created HTML element
+ * @returns {HTMLElement} - Returns the created HTML element
  */
 function createHtmlElement(tag, className = null, content = null, atributtes = {}) {
     const element = document.createElement(tag);
