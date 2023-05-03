@@ -8,7 +8,7 @@
 // Base styles
 @use 'base/reset';
 @use 'base/typography';
-// @use 'base/colors';
+@use 'base/colors' as color;
 // @use 'base/utils';
 
 // Layouts and components
@@ -27,9 +27,10 @@
 // @use 'components/profileCards';
 // @use 'components/toasts';
 // @use 'components/loadingSpinner';
+@use 'components/photos';
 
 // Page-specific styles
-// @use 'pages/profilePage';
+@use 'pages/singleListing';
 
 //Accessabillity
 @use 'accessibility/accessibility';
@@ -42,6 +43,8 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
+
+    --outline-color: lime;
 }
 
 input[type=number] {

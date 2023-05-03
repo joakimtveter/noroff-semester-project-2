@@ -1,20 +1,23 @@
 @use './palette' as palette;
 
-$warning-dark: #b87d00;
 $warning: #eda302;
-$warning-light: hsl(39, 97%, 70%);
+$warning-light: #fdc968;
+$warning-dark: #b87d00;
 $warning-background: #fee4b4;
-$error-dark: #c72929;
+
 $error: #d33131;
 $error-light: #f05e5c;
+$error-dark: #c72929;
 $error-background: #f8bab9;
-$info-dark: #01599d;
+
 $info: #0287cf;
 $info-light: #35befd;
+$info-dark: #01599d;
 $info-background: #b3e6fe;
-$success-dark: #1c5f20;
+
 $success: #2f7f33;
 $success-light: #70c273;
+$success-dark: #1c5f20;
 $success-background: #cae8cb;
 
 
