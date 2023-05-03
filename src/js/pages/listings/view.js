@@ -11,11 +11,13 @@ const mainImage = document.getElementById('main-image');
 const bidForm = document.getElementById('bid-form');
 const bidInput = document.getElementById('bid-input');
 const imageContainer = document.getElementById('image-container');
+const metaDescription = document.querySelector('meta[name="description"]');
 
 //  Fetch data and render page
 try {
     const id = getValueFromURLParameter('id');
     const data = await getListingById(id);
+    // TODO: Remove console.log
     console.log(data);
 
     const images = data.media;
@@ -40,6 +42,7 @@ try {
         thumbnails.appendChild(img);
     });
     document.title = data.title + ' for sale | The Auction House';
+    metaDescription.setAttribute("content", data.description);
     imageContainer.style.visibility = 'visible';
     currentBidP.style.visibility = 'visible';
     bidForm.style.visibility = 'visible';

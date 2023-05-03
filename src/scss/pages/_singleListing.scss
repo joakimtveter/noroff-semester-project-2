@@ -1,0 +1,8 @@
+.page.single-listing {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        .info-container {
+            padding: 1rem;
+        }
+}
