@@ -7,7 +7,7 @@
 
 // Base styles
 @use 'base/reset';
-// @use 'base/typography';
+@use 'base/typography';
 // @use 'base/colors';
 // @use 'base/utils';
 
@@ -32,7 +32,7 @@
 // @use 'pages/profilePage';
 
 //Accessabillity
-// @use 'accessibility/accessibility';
+@use 'accessibility/accessibility';
 
 // @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;800&display=swap');
 
