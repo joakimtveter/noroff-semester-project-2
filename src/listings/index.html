@@ -4,27 +4,43 @@
         <meta charset="UTF-8" />
         <link rel="icon" type="image/svg+xml" href="/vite.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>The Auction House</title>
-        <meta name="description" content="Single item up for auction">
+        <title>All auction items | The Auction House</title>
     </head>
     <body>
-        <div id="app" class='page single-listing'>
-            <div id='image-container' style='visibility: hidden;'>
-                <img id='main-image' src='' alt='' />
-                <div id="thumbnails"></div>
+        <header class="site-header">
+            <div class="header-container">
+                <div class="branding">
+                    <a href="/">The Auction House</a>
+                </div>
+                <nav class="nav" aria-label="main">
+                    <ul class="nav-list" role="list">
+                        <li class="nav-item" role="listitem">
+                            <a class="nav-link" href="/">Listings</a>
+                        </li>
+                        <li class="nav-item" role="listitem">
+                            <a class="nav-link" href="/auth/login.html">Login</a>
+                        </li>
+                        <li class="nav-item" role="listitem">
+                            <a class="nav-link" href="/auth/register.html">Register</a>
+                        </li>
+                        <li class="nav-item" role="listitem">
+                            <a class="nav-link" href="/profile/index.html">Profile</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-            <div class='info-container'>
-                <h1 id='title'></h1>
-                <p id="description"></p>
-                <p class='current-bid' style='visibility: hidden;'>Current bid: <span id='current-bid'>0</span></p>
-                <form id='bid-form' style='visibility: hidden;'>
-                    <input id='bid-input' type='number' />
-                    <button type='submit' id='bid-button'>Bid</button>
-                </form>
+        </header>
+        <main id="main-content">
+            <div class="content-width-container">
+                <h1>All listings</h1>
+                <div id="all-listings" class="listing-container"></div>
             </div>
-        </div>
-        <div id='toast-container'></div>
+        </main>
+        <footer class="site-footer">
+            <p class="copyright">&copy;<span>2023</span> The Auction House</p>
+        </footer>
+        <div id="toast-container"></div>
         <script type="module" src="/js/main.js"></script>
-        <script type="module" src="/js/pages/listings/view.js"></script>
+        <script type="module" src="/js/pages/index.js"></script>
     </body>
 </html>

@@ -14,4 +14,5 @@ export { setUrlParametersWithoutReload } from './utils/setUrlParametersWithoutRe
 
 // Other functions
 export { timeSince } from './utils/timeSince';
+export { timeUntil } from './utils/timeUntil';
 export { showToast } from './utils/showToast';

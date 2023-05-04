@@ -1,9 +1,9 @@
-import { getListings } from '../api';
-import { renderListingCard } from '../render';
+import { getListings } from '../../api';
+import { renderListingCard } from '../../render';
 
 const allListingsContainer = document.getElementById('all-listings');
 
-const listings = await getListings({ limit: 6, bids: true, seller: true, active: true });
+const listings = await getListings({ bids: true, seller: true, active: true });
 console.log(listings);
 
 listings.forEach((listing) => {

@@ -1,0 +1,47 @@
+@use '../base/typography' as type;
+
+.listing-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1rem;
+
+    .card {
+        border: 1px solid #ccc;
+        cursor: pointer;
+
+        .card-image {
+            width: 100%;
+            object-fit: cover;
+            aspect-ratio: 5 / 4;
+        }
+
+        .card-body {
+            padding: 1rem;
+        }
+
+        .card-title {
+            font-size: type.$font-size-4;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-tag {
+            font-size: type.$font-size-n1;
+            background-color: red;
+            padding: 0.2rem 0.5rem;
+            border-radius: 1000px;
+        }
+
+        .card-description {
+            font-size: type.$font-size-1;
+            margin-bottom: 0.5rem;
+        }
+    }
+}

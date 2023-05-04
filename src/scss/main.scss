@@ -9,15 +9,16 @@
 @use 'base/reset';
 @use 'base/typography';
 @use 'base/colors' as color;
-// @use 'base/utils';
+@use 'base/utils';
 
 // Layouts and components
-// @use 'layout/layout';
-// @use 'layout/header';
+@use 'layout/layout';
+@use 'layout/header';
+@use 'layout/footer';
 // @use 'layout/feedHeader';
 // @use 'layout/footer';
 // @use 'layout/navigation';
-// @use 'components/cards';
+@use 'components/card';
 // @use 'components/buttons';
 // @use 'components/forms';
 // @use 'components/tables';
@@ -47,12 +48,12 @@
     --outline-color: lime;
 }
 
-input[type=number] {
+input[type='number'] {
     -moz-appearance: textfield;
 
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
         -webkit-appearance: none;
-        margin: 0; 
+        margin: 0;
     }
 }

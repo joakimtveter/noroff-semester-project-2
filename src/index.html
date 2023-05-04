@@ -6,32 +6,44 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>The Auction House</title>
     </head>
-    <body>
+    <body class="page home">
         <header class="site-header">
             <div class="header-container">
-                <a href="branding">The Auction House</a>
-                <nav aria-label="main">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Listings</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/auth/login.html">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/auth/register.html">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/profile/index.html">Profile</a>
-                    </li>
+                <div class="branding">
+                    <a href="/">The Auction House</a>
+                </div>
+                <nav class="nav" aria-label="main">
+                    <ul class="nav-list" role="list">
+                        <li class="nav-item" role="listitem">
+                            <a class="nav-link" href="/listings/index.html">All listings</a>
+                        </li>
+                        <li class="nav-item" role="listitem">
+                            <a class="nav-link" href="/auth/login.html">Login</a>
+                        </li>
+                        <li class="nav-item" role="listitem">
+                            <a class="nav-link" href="/auth/register.html">Register</a>
+                        </li>
+                        <li class="nav-item" role="listitem">
+                            <a class="nav-link" href="/profile/index.html">Profile</a>
+                        </li>
+                    </ul>
                 </nav>
             </div>
         </header>
-        <main id="main-content">
-            <h1>All listings</h1>
-            <div id='all-listings' class="listing-container"></div>
+        <main id="main-content" class="content">
+            <div class="content-width-container">
+                <h2>All listings</h2>
+                <div id="all-listings" class="listing-container"></div>
+                <a href="/listings/index.html">See more auction listings</a>
+            </div>
         </main>
         <footer class="site-footer">
-            <p class="copyright">&copy;<span>2023</span> The Auction House</p>
+            <div class="content-width-container">
+                <p class="copyright">
+                    &copy;<span>2023</span> The Auction House. Developed by
+                    <a href="http://joakimtveter.no">Joakim Tveter</a>.
+                </p>
+            </div>
         </footer>
         <div id="toast-container"></div>
         <script type="module" src="/js/main.js"></script>
