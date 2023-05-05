@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Register | The Auction House</title>
     </head>
-    <body>
+    <body class="page auth-register">
         <header class="site-header">
             <div class="header-container">
                 <a href="branding">The Auction House</a>
@@ -26,54 +26,61 @@
                 </nav>
             </div>
         </header>
-        <main id="main-content">
-            <div class="form-container">
-                <h1>Create your account</h1>
-                <form id="register-form" novalidate>
-                    <div class="form-control">
-                        <label id="name-label" for="name">Name:</label>
-                        <input
-                            id="name"
-                            type="text"
-                            name="name"
-                            placeholder="Name"
-                            aria-labelledby="name-label"
-                            required
-                        />
-                    </div>
-                    <div class="form-control">
-                        <label id="email-label" for="email">Email:</label>
-                        <input
-                            id="email"
-                            type="email"
-                            name="email"
-                            placeholder="Email"
-                            aria-labelledby="email-label"
-                            required
-                        />
-                    </div>
-                    <div class="form-control">
-                        <label id="password-label" for="password">Password:</label>
-                        <input
-                            id="password"
-                            type="password"
-                            name="password"
-                            placeholder="Password"
-                            aria-labelledby="password-label"
-                            required
-                        />
-                    </div>
-                    <div class="form-control">
-                        <button id="register-button" type="submit" class="button contained primary">
-                            Create account
-                        </button>
-                        <a href="/auth/login.html">I have already have an account, sign in.</a>
-                    </div>
-                </form>
+        <main id="main-content" class="content">
+            <div class="content-width-container">
+                <div class="form-container">
+                    <h1>Create your account</h1>
+                    <form id="register-form" novalidate>
+                        <div class="form-control">
+                            <label id="name-label" for="name">Name:</label>
+                            <input
+                                id="name"
+                                type="text"
+                                name="name"
+                                placeholder="Name"
+                                aria-labelledby="name-label"
+                                required
+                            />
+                        </div>
+                        <div class="form-control">
+                            <label id="email-label" for="email">Email:</label>
+                            <input
+                                id="email"
+                                type="email"
+                                name="email"
+                                placeholder="Email"
+                                aria-labelledby="email-label"
+                                required
+                            />
+                        </div>
+                        <div class="form-control">
+                            <label id="password-label" for="password">Password:</label>
+                            <input
+                                id="password"
+                                type="password"
+                                name="password"
+                                placeholder="Password"
+                                aria-labelledby="password-label"
+                                required
+                            />
+                        </div>
+                        <div class="form-control">
+                            <button id="register-button" type="submit" class="button contained primary">
+                                Create account
+                            </button>
+                            <a href="/auth/login.html">I have already have an account, sign in.</a>
+                        </div>
+                    </form>
+                </div>
             </div>
         </main>
         <footer class="site-footer">
-            <p class="copyright">&copy;<span>2023</span> The Auction House</p>
+            <div class="content-width-container">
+                <p class="copyright">
+                    &copy;<span>2023</span> The Auction House. Developed by
+                    <a href="http://joakimtveter.no">Joakim Tveter</a>.
+                </p>
+            </div>
         </footer>
         <div id="toast-container"></div>
         <script type="module" src="/js/main.js"></script>
