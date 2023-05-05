@@ -5,8 +5,9 @@
         <link rel="icon" type="image/svg+xml" href="/vite.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>The Auction House</title>
+        <meta name="description" content="Single item up for auction" />
     </head>
-    <body class="page home">
+    <body class="page single-listing">
         <header class="site-header">
             <div class="header-container">
                 <div class="branding">
@@ -32,9 +33,23 @@
         </header>
         <main id="main-content" class="content">
             <div class="content-width-container">
-                <h2>All listings</h2>
-                <div id="all-listings" class="listing-container"></div>
-                <a href="/listings/index.html">See more auction listings</a>
+                <div class="col-2">
+                    <div id="image-container" style="visibility: hidden">
+                        <img id="main-image" src="" alt="" />
+                        <div id="thumbnails"></div>
+                    </div>
+                    <div class="info-container">
+                        <h1 id="title"></h1>
+                        <p id="description"></p>
+                        <p class="current-bid" style="visibility: hidden">
+                            Current bid: <span id="current-bid">0</span>
+                        </p>
+                        <form id="bid-form" style="visibility: hidden">
+                            <input id="bid-input" type="number" />
+                            <button type="submit" id="bid-button">Bid</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </main>
         <footer class="site-footer">
@@ -47,6 +62,6 @@
         </footer>
         <div id="toast-container"></div>
         <script type="module" src="/js/main.js"></script>
-        <script type="module" src="/js/pages/index.js"></script>
+        <script type="module" src="/js/pages/listings/single.js"></script>
     </body>
 </html>

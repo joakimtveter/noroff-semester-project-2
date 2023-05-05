@@ -4,9 +4,9 @@
         <meta charset="UTF-8" />
         <link rel="icon" type="image/svg+xml" href="/vite.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>The Auction House</title>
+        <title>All auction items | The Auction House</title>
     </head>
-    <body class="page home">
+    <body>
         <header class="site-header">
             <div class="header-container">
                 <div class="branding">
@@ -15,7 +15,7 @@
                 <nav class="nav" aria-label="main">
                     <ul class="nav-list" role="list">
                         <li class="nav-item" role="listitem">
-                            <a class="nav-link" href="/listings/index.html">All listings</a>
+                            <a class="nav-link" href="/">Listings</a>
                         </li>
                         <li class="nav-item" role="listitem">
                             <a class="nav-link" href="/auth/login.html">Login</a>
@@ -30,23 +30,17 @@
                 </nav>
             </div>
         </header>
-        <main id="main-content" class="content">
+        <main id="main-content">
             <div class="content-width-container">
-                <h2>All listings</h2>
+                <h1>All listings</h1>
                 <div id="all-listings" class="listing-container"></div>
-                <a href="/listings/index.html">See more auction listings</a>
             </div>
         </main>
         <footer class="site-footer">
-            <div class="content-width-container">
-                <p class="copyright">
-                    &copy;<span>2023</span> The Auction House. Developed by
-                    <a href="http://joakimtveter.no">Joakim Tveter</a>.
-                </p>
-            </div>
+            <p class="copyright">&copy;<span>2023</span> The Auction House</p>
         </footer>
         <div id="toast-container"></div>
         <script type="module" src="/js/main.js"></script>
-        <script type="module" src="/js/pages/index.js"></script>
+        <script type="module" src="/js/pages/listings/index.js"></script>
     </body>
 </html>

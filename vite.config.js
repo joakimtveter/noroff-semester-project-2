@@ -3,6 +3,7 @@ import { defineConfig } from 'vite';
 
 const root = resolve(__dirname, 'src');
 const outDir = resolve(__dirname, 'dist');
+const publicDir = resolve(__dirname, 'public');
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -10,6 +11,7 @@ export default defineConfig({
     build: {
         outDir,
         emptyOutDir: true,
+        publicDir,
         rollupOptions: {
             input: {
                 main: resolve(root, 'index.html'),
