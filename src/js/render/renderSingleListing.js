@@ -1,18 +1,20 @@
-import { createHtmlElement, timeSince, isLoggedIn } from '../utils';
+import { createHtmlElement, timeSince, timeUntil, isLoggedIn, reload, showToast } from '../utils';
 import { submittBid } from '../api';
 
 function renderSingleListing(listing) {
-    const { title, description, endsAt, media, seller, wins, tags, bids } = listing;
+    const { id, title, description, endsAt, media, seller, wins, tags, bids } = listing;
     const highestBid = bids.reduce((highest, bid) => {
         return bid.amount > highest ? bid.amount : highest;
     }, 0);
+    const endsAtTimestamp = new Date(endsAt).getTime();
+    const nowTimestamp = new Date().getTime();
+    const auctionIsOver = endsAtTimestamp < nowTimestamp;
 
-    // Page Structure
     const body = createHtmlElement('div', 'listing-body');
     const imageContainer = createHtmlElement('div', 'image-container');
     const page = createHtmlElement('div', 'content-width-container col-2');
 
-    // Image container
+    // Images
     const mainImage = createHtmlElement('img', 'main-image', null, { src: media[0] });
     imageContainer.appendChild(mainImage);
     if (media.length > 1) {
@@ -28,18 +30,33 @@ function renderSingleListing(listing) {
         imageContainer.appendChild(thumbnails);
     }
 
-    // Body
+    // Listing body
     const titleElement = createHtmlElement('h1', 'listing-title', title);
     body.appendChild(titleElement);
 
     const descriptionElement = createHtmlElement('p', 'listing-description', description);
     body.appendChild(descriptionElement);
 
+    if (tags.length > 0) {
+        const tagsContainer = createHtmlElement('div', 'listing-tags');
+        tags.forEach((tag) => {
+            const tagElement = createHtmlElement('span', 'listing-tag', tag);
+            tagsContainer.appendChild(tagElement);
+        });
+        body.appendChild(tagsContainer);
+    }
+
     const currentBidElement = createHtmlElement('p', 'listing-current-bid', `Current bid: ${highestBid} kr`);
     body.appendChild(currentBidElement);
 
-    const sellerContainer = createHtmlElement('div', 'listing-seller');
+    const endsAtElement = createHtmlElement(
+        'p',
+        'listing-ends-at',
+        auctionIsOver ? 'Auction has ended' : `Auction ends in ${timeUntil(endsAtTimestamp)}`
+    );
+    body.appendChild(endsAtElement);
 
+    const sellerContainer = createHtmlElement('div', 'listing-seller');
     if (seller.avatar !== null) {
         const sellerAvatar = createHtmlElement('img', 'listing-seller-avatar', null, { src: seller.avatar });
         sellerContainer.appendChild(sellerAvatar);
@@ -53,9 +70,8 @@ function renderSingleListing(listing) {
     sellerContainer.appendChild(sellerWins);
     body.appendChild(sellerContainer);
 
-    // Bid form
-
-    if (new Date(endsAt).getTime() > new Date().getTime() && isLoggedIn()) {
+    // Bid form - Only if logged in and auction is not over
+    if (!auctionIsOver && isLoggedIn()) {
         const bidForm = createHtmlElement('form', 'listing-bid-form');
         const bidInput = createHtmlElement('input', 'listing-bid-input', null, {
             name: 'bid',
@@ -69,31 +85,38 @@ function renderSingleListing(listing) {
         bidForm.appendChild(bidButton);
         bidForm.addEventListener('submit', (event) => {
             event.preventDefault();
-            console.log('Bid placed');
+            console.log(event);
+            try {
+                submittBid(id, bidInput.value);
+                showToast('Bid placed', 'success');
+                reload(3200);
+            } catch (error) {
+                console.error(error);
+                showToast(error, 'error');
+            }
         });
         body.appendChild(bidForm);
     }
 
-    // Bids
-    const bidContainer = createHtmlElement('div', 'listing-bid-container');
-    const bidTitle = createHtmlElement('h2', 'listing-bid-title', 'Bid History');
-    bidContainer.appendChild(bidTitle);
+    // Bid history - Only if there are bids
+    if (bids.length > 0) {
+        const bidContainer = createHtmlElement('div', 'listing-bid-container');
+        const bidTitle = createHtmlElement('h2', 'listing-bid-title', 'Bid History');
+        bidContainer.appendChild(bidTitle);
 
-    bids.sort((a, b) => (a.amount < b.amount ? 1 : -1)).forEach((bid) => {
-        const bidElement = createHtmlElement('div', 'listing-bid');
-        const bidAmount = createHtmlElement('p', 'listing-bid-amount', `${bid.amount} kr`);
-        const bidUser = createHtmlElement('p', 'listing-bid-user', bid.bidderName);
-        const bidDate = createHtmlElement('p', 'listing-bid-date', timeSince(new Date(bid.created)));
+        bids.sort((a, b) => (a.amount < b.amount ? 1 : -1)).forEach((bid) => {
+            const bidElement = createHtmlElement('div', 'listing-bid');
+            const bidAmount = createHtmlElement('p', 'listing-bid-amount', `${bid.amount} kr`);
+            const bidUser = createHtmlElement('p', 'listing-bid-user', bid.bidderName);
+            const bidDate = createHtmlElement('p', 'listing-bid-date', timeSince(new Date(bid.created)));
 
-        bidElement.appendChild(bidAmount);
-        bidElement.appendChild(bidUser);
-        bidElement.appendChild(bidDate);
-        bidContainer.appendChild(bidElement);
-    });
-
-    // Assemble page
-
-    body.appendChild(bidContainer);
+            bidElement.appendChild(bidAmount);
+            bidElement.appendChild(bidUser);
+            bidElement.appendChild(bidDate);
+            bidContainer.appendChild(bidElement);
+            body.appendChild(bidContainer);
+        });
+    }
 
     page.appendChild(imageContainer);
     page.appendChild(body);
@@ -102,24 +125,3 @@ function renderSingleListing(listing) {
 }
 
 export { renderSingleListing };
-
-// const images = data.media;
-
-// title.innerText = data.title;
-// description.innerText = data.description;
-// currentBid.innerText = data.currentBid;
-
-// currentBid.innerText = highestBid;
-// bidInput.min = highestBid + 1;
-// bidInput.value = highestBid + 1;
-// mainImage.src = images[0];
-
-// images.forEach((image) => {
-//     const img = createHtmlElement('img', 'thumbnail', null, { src: image });
-//     img.addEventListener('click', () => {
-//         mainImage.src = image;
-//     });
-//     thumbnails.appendChild(img);
-// });
-// document.title = data.title + ' for sale | The Auction House';
-// metaDescription.setAttribute('content', data.description);
