@@ -7,6 +7,7 @@ function renderListingCard(listing) {
         return bid.amount > highest ? bid.amount : highest;
     }, 0);
     const remaining = timeUntil(new Date(endsAt).getTime());
+    const auctionEndsText = remaining ? `Auction ends in ${remaining}` : 'Auction ended';
     console.log('ends at: ', endsAt, 'remaining: ', remaining);
 
     const card = createHtmlElement('div', 'card');
@@ -15,14 +16,14 @@ function renderListingCard(listing) {
     const img = createHtmlElement('img', 'card-image', null, { src: imageUrl, alt: title });
     const body = createHtmlElement('div', 'card-body');
     const cardTitle = createHtmlElement('h3', 'card-title', title);
-    const cardDescription = createHtmlElement('p', 'card-description', description);
+    const cardDescription = createHtmlElement('p', 'card-description truncate-2', description);
     const tagContainer = createHtmlElement('div', 'card-tags');
     const currentBid = createHtmlElement(
         'p',
         'card-current-bid',
         `Current bid: ${highestBid} kr – ${_count.bids} bids`
     );
-    const timeLeft = createHtmlElement('p', 'card-time-left', `Time left: ${remaining}`);
+    const timeLeft = createHtmlElement('p', 'card-time-left', auctionEndsText);
 
     tags.forEach((tag) => {
         const tagElement = createHtmlElement('span', 'card-tag', tag);

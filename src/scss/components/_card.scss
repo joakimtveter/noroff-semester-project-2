@@ -1,4 +1,5 @@
 @use '../base/typography' as type;
+@use '../base/palette' as color;
 
 .listing-container {
     display: grid;
@@ -20,7 +21,7 @@
         }
 
         .card-title {
-            font-size: type.$font-size-4;
+            font-size: type.$font-size-3;
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
@@ -34,9 +35,25 @@
 
         .card-tag {
             font-size: type.$font-size-n1;
-            background-color: red;
             padding: 0.2rem 0.5rem;
             border-radius: 1000px;
+            background-color: color.$amber-A400;
+        }
+
+        .card-tag:nth-child(2) {
+            background-color: color.$yellow-A400;
+        }
+
+        .card-tag:nth-child(3) {
+            background-color: color.$teal-A400;
+        }
+
+        .card-tag:nth-child(4) {
+            background-color: color.$purple-A100;
+        }
+
+        .card-tag:nth-child(5) {
+            background-color: color.$grey-A200;
         }
 
         .card-description {
