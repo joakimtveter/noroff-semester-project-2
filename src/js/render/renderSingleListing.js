@@ -76,8 +76,8 @@ function renderSingleListing(listing) {
         const bidInput = createHtmlElement('input', 'listing-bid-input', null, {
             name: 'bid',
             type: 'number',
-            min: highestBid + 1,
-            value: highestBid + 1,
+            min: highestBid + 1 || 1,
+            value: highestBid + 1 || 1,
         });
         const bidButton = createHtmlElement('button', 'listing-bid-button', 'Place bid', { type: 'submit' });
 
@@ -85,7 +85,6 @@ function renderSingleListing(listing) {
         bidForm.appendChild(bidButton);
         bidForm.addEventListener('submit', (event) => {
             event.preventDefault();
-            console.log(event);
             try {
                 submittBid(id, bidInput.value);
                 showToast('Bid placed', 'success');
