@@ -1,0 +1,30 @@
+@use '../base/typography' as *;
+
+.page.profile {
+    .profile-header {
+        display: flex;
+        gap: 2rem;
+    }
+    .profile-avatar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: $font-size-5;
+        text-transform: uppercase;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        background-color: lightgrey;
+    }
+
+    .profile-info-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .profile-name {
+        margin-block-end: 0;
+    }
+}

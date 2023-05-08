@@ -5,10 +5,13 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 1rem;
+    padding: 0;
 
     .card {
         border: 1px solid #ccc;
         cursor: pointer;
+        max-width: 500px;
+        list-style-type: none;
 
         .card-image {
             width: 100%;

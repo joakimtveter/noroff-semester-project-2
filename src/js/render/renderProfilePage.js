@@ -1,6 +1,5 @@
 import { createHtmlElement } from '../utils';
 import { renderListingCard } from '../render';
-import { getListingById } from '../api';
 
 function renderProfilePage(profile) {
     const { name, credits, avatar, wins, listings, _count } = profile;
@@ -12,7 +11,9 @@ function renderProfilePage(profile) {
         const avatarElement = createHtmlElement('img', 'profile-avatar', null, { src: avatar });
         header.appendChild(avatarElement);
     } else {
-        const avatarElement = createHtmlElement('div', 'profile-avatar', name.charAt(0));
+        const avatarElement = createHtmlElement('div', 'profile-avatar');
+        const avatarLetter = createHtmlElement('span', null, name.charAt(0));
+        avatarElement.appendChild(avatarLetter);
         header.appendChild(avatarElement);
     }
     const infoContainer = createHtmlElement('div', 'profile-info-container');
@@ -27,13 +28,13 @@ function renderProfilePage(profile) {
     page.appendChild(header);
 
     if (listings.length > 0) {
-        const listingsContainer = createHtmlElement('div', 'profile-listings-container');
+        const listingsContainer = createHtmlElement('div', 'listings-container');
         page.appendChild(listingsContainer);
 
         const listingsTitle = createHtmlElement('h2', 'profile-listings-title', 'Listings');
         listingsContainer.appendChild(listingsTitle);
 
-        const listingsList = createHtmlElement('ul', 'profile-listings-list');
+        const listingsList = createHtmlElement('ul', 'listing-container');
         listingsContainer.appendChild(listingsList);
 
         listings.forEach((listing) => {
