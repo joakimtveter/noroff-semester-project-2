@@ -26,5 +26,6 @@ export default defineConfig({
                 editProfile: resolve(root, 'profile/edit.html'),
             },
         },
+        target: 'esnext',
     },
 });
