@@ -15,11 +15,13 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 main: resolve(root, 'index.html'),
+                search: resolve(root, 'search.html'),
                 login: resolve(root, 'auth/login.html'),
                 register: resolve(root, 'auth/register.html'),
-                listing: resolve(root, 'listing/index.html'),
-                editListing: resolve(root, 'listing/edit.html'),
-                createListing: resolve(root, 'listing/create.html'),
+                allListings: resolve(root, 'listings/index.html'),
+                singleListing: resolve(root, 'listings/single.html'),
+                editListing: resolve(root, 'listings/edit.html'),
+                createListing: resolve(root, 'listings/create.html'),
                 profile: resolve(root, 'profile/index.html'),
                 editProfile: resolve(root, 'profile/edit.html'),
             },
