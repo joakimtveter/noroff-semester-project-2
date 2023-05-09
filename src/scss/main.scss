@@ -19,8 +19,8 @@
 // @use 'layout/footer';
 // @use 'layout/navigation';
 @use 'components/card';
+@use 'components/forms';
 // @use 'components/buttons';
-// @use 'components/forms';
 // @use 'components/tables';
 // @use 'components/figures';
 // @use 'components/avatar';
@@ -36,8 +36,6 @@
 
 //Accessabillity
 @use 'accessibility/accessibility';
-
-// @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;800&display=swap');
 
 :root {
     font-synthesis: none;

@@ -1,0 +1,27 @@
+@use '../base/typography' as *;
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+
+    label {
+        font-size: $font-size-1;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+    }
+
+    button[type='submit'] {
+        margin-top: 1rem;
+        margin-bottom: 0.25rem;
+    }
+    a[href] {
+        font-size: $font-size-2;
+        text-align: center;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

@@ -1,8 +1,10 @@
-import { createHtmlElement } from '../utils';
+import { createHtmlElement, getValueFromURLParameter } from '../utils';
 import { renderListingCard } from '../render';
+import { updateProfileMedia } from '../api';
 
 function renderProfilePage(profile) {
-    const { name, credits, avatar, wins, listings, _count } = profile;
+    const { name, credits, avatar, wins, listings } = profile;
+    const profileUser = getValueFromURLParameter('user');
 
     const page = createHtmlElement('div', 'content-width-container');
     const header = createHtmlElement('div', 'profile-header');
@@ -22,8 +24,49 @@ function renderProfilePage(profile) {
     const nameElement = createHtmlElement('h1', 'profile-name', name);
     infoContainer.appendChild(nameElement);
 
-    const creditsElement = createHtmlElement('p', 'profile-credits', `Available credits: ${credits} kr`);
-    infoContainer.appendChild(creditsElement);
+    if (profileUser === null) {
+        const creditsElement = createHtmlElement('p', 'profile-credits', `Available credits: ${credits} kr`);
+        infoContainer.appendChild(creditsElement);
+
+        const editAvatarButton = createHtmlElement('button', 'profile-edit-avatar-button', 'Edit Avatar');
+        editAvatarButton.addEventListener('click', () => {
+            document.getElementById('edit-avatar-modal').showModal();
+        });
+        header.appendChild(editAvatarButton);
+
+        const editAvatarDialog = createHtmlElement('dialog', 'modal', null, { id: 'edit-avatar-modal' });
+        const editAvatarForm = createHtmlElement('form');
+        const editAvatarFormControl = createHtmlElement('div', 'form-control');
+        const editAvatarLabel = createHtmlElement('label', null, 'Avatar URL', { for: 'edit-avatar-input' });
+        const editAvatarInput = createHtmlElement('input', null, null, {
+            id: 'edit-avatar-input',
+            type: 'url',
+            placeholder: 'Avatar URL',
+            required: true,
+        });
+        const editAvatarSubmit = createHtmlElement('button', null, 'Save', { type: 'submit' });
+        const editAvatarCancel = createHtmlElement('button', null, 'Cancel', { type: 'button' });
+
+        editAvatarFormControl.appendChild(editAvatarLabel);
+        editAvatarFormControl.appendChild(editAvatarInput);
+        editAvatarForm.appendChild(editAvatarFormControl);
+        editAvatarForm.appendChild(editAvatarCancel);
+        editAvatarForm.appendChild(editAvatarSubmit);
+        editAvatarDialog.appendChild(editAvatarForm);
+        header.appendChild(editAvatarDialog);
+
+        editAvatarCancel.addEventListener('click', (e) => {
+            e.preventDefault();
+            editAvatarDialog.close();
+        });
+
+        editAvatarForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const avatarUrl = editAvatarInput.value;
+            editAvatarDialog.close();
+            updateProfileMedia(avatarUrl);
+        });
+    }
 
     page.appendChild(header);
 

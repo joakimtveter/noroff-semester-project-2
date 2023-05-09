@@ -5,3 +5,4 @@ export { submittBid } from './api/listings/submittBid';
 
 // Profiles
 export { getSingleProfile } from './api/profile/getSingleProfile';
+export { updateProfileMedia } from './api/profile/updateProfileMedia';

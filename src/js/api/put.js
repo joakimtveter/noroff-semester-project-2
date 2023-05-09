@@ -3,8 +3,8 @@ import { showToast, getAccessToken } from '../utils.js';
 
 /**
  * Generic API put function
- * @param {string} endpoint - API endpoint to put to with leading slash
- * @param {object} [requestBody] - Put request body
+ * @param {string} endpoint - API endpoint to PUT to with leading slash
+ * @param {object} [requestBody] - PUT request body
  * @returns {Promise<void>} - Returns nothing. Throws error on failure.
  * @example put('/posts/1234/react/👍')
  */
