@@ -1,4 +1,4 @@
-import { createHtmlElement, getValueFromURLParameter } from '../utils';
+import { createHtmlElement, getValueFromURLParameter, logout, reload } from '../utils';
 import { renderListingCard } from '../render';
 import { updateProfileMedia } from '../api';
 
@@ -65,7 +65,14 @@ function renderProfilePage(profile) {
             const avatarUrl = editAvatarInput.value;
             editAvatarDialog.close();
             updateProfileMedia(avatarUrl);
+            reload(1000);
         });
+
+        const logoutButton = createHtmlElement('button', 'profile-logout-button', 'Logout');
+        logoutButton.addEventListener('click', () => {
+            logout();
+        });
+        header.appendChild(logoutButton);
     }
 
     page.appendChild(header);

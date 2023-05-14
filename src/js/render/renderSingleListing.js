@@ -1,5 +1,14 @@
-import { createHtmlElement, timeSince, timeUntil, isLoggedIn, reload, showToast } from '../utils';
-import { submittBid } from '../api';
+import {
+    createHtmlElement,
+    timeSince,
+    timeUntil,
+    isLoggedIn,
+    reload,
+    showToast,
+    getUserName,
+    redirect,
+} from '../utils';
+import { submittBid, deleteListing } from '../api';
 
 function renderSingleListing(listing) {
     const { id, title, description, endsAt, media, seller, wins, tags, bids } = listing;
@@ -9,6 +18,7 @@ function renderSingleListing(listing) {
     const endsAtTimestamp = new Date(endsAt).getTime();
     const nowTimestamp = new Date().getTime();
     const auctionIsOver = endsAtTimestamp < nowTimestamp;
+    const isSeller = seller.name === getUserName();
 
     const body = createHtmlElement('div', 'listing-body');
     const imageContainer = createHtmlElement('div', 'image-container');
@@ -33,6 +43,20 @@ function renderSingleListing(listing) {
     // Listing body
     const titleElement = createHtmlElement('h1', 'listing-title', title);
     body.appendChild(titleElement);
+
+    if (isSeller) {
+        const editLink = createHtmlElement('a', 'listing-edit-link', 'Edit listing', {
+            href: `/listings/edit.html?id=${id}`,
+        });
+        body.appendChild(editLink);
+
+        const deleteButton = createHtmlElement('button', 'listing-delete-button', 'Delete listing');
+        deleteButton.addEventListener('click', () => {
+            deleteListing(id);
+            redirect('/profile.html', 500);
+        });
+        body.appendChild(deleteButton);
+    }
 
     const descriptionElement = createHtmlElement('p', 'listing-description', description);
     body.appendChild(descriptionElement);
@@ -71,7 +95,7 @@ function renderSingleListing(listing) {
     body.appendChild(sellerContainer);
 
     // Bid form - Only if logged in and auction is not over
-    if (!auctionIsOver && isLoggedIn()) {
+    if (!auctionIsOver && isLoggedIn() && !isSeller) {
         const bidForm = createHtmlElement('form', 'listing-bid-form');
         const bidInput = createHtmlElement('input', 'listing-bid-input', null, {
             name: 'bid',
