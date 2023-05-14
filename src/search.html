@@ -7,9 +7,47 @@
         <title>Auction House</title>
     </head>
     <body>
-        <div id="app">
-            <h1>Search</h1>
-        </div>
+        <header class="site-header">
+            <div class="header-container">
+                <div class="branding">
+                    <a href="/">The Auction House</a>
+                </div>
+                <nav class="nav" aria-label="main">
+                    <ul class="nav-list" id="main-navigation-list" role="list">
+                        <li class="nav-item" role="listitem">
+                            <a class="nav-link" href="/listings/index.html">All listings</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main id="main-content" class="content">
+            <div class="content-width-container">
+                <form class="search-form" action="/search.html" method="get">
+                    <input id="search-input" class="search-input" type="search" name="q" id="searchbox" />
+                    <button type="submit" class="search">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 96 960 960">
+                            <path
+                                d="M796 935 533 672q-30 26-69.959 40.5T378 727q-108.162 0-183.081-75Q120 577 120 471t75-181q75-75 181.5-75t181 75Q632 365 632 471.15 632 514 618 554q-14 40-42 75l264 262-44 44ZM377 667q81.25 0 138.125-57.5T572 471q0-81-56.875-138.5T377 275q-82.083 0-139.542 57.5Q180 390 180 471t57.458 138.5Q294.917 667 377 667Z"
+                            />
+                        </svg>
+                        <span class="visually-hidden">Search</span>
+                    </button>
+                </form>
+                <h1 id="title">Search</h1>
+                <p><span id="number-of-results">0</span> results</p>
+                <div id="search-results" class="listing-container"></div>
+            </div>
+        </main>
+        <footer class="site-footer">
+            <div class="content-width-container">
+                <p class="copyright">
+                    &copy;<span>2023</span> The Auction House. Developed by
+                    <a href="http://joakimtveter.no">Joakim Tveter</a>.
+                </p>
+            </div>
+        </footer>
+        <div id="toast-container"></div>
         <script type="module" src="/js/main.js"></script>
         <script type="module" src="/js/pages/search.js"></script>
     </body>

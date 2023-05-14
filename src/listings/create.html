@@ -12,18 +12,9 @@
                     <a href="/">The Auction House</a>
                 </div>
                 <nav class="nav" aria-label="main">
-                    <ul class="nav-list" role="list">
+                    <ul class="nav-list" id="main-navigation-list" role="list">
                         <li class="nav-item" role="listitem">
                             <a class="nav-link" href="/listings/index.html">All listings</a>
-                        </li>
-                        <li class="nav-item" role="listitem">
-                            <a class="nav-link" href="/auth/login.html">Login</a>
-                        </li>
-                        <li class="nav-item" role="listitem">
-                            <a class="nav-link" href="/auth/register.html">Register</a>
-                        </li>
-                        <li class="nav-item" role="listitem">
-                            <a class="nav-link" href="/profile/index.html">Profile</a>
                         </li>
                     </ul>
                 </nav>
@@ -31,7 +22,7 @@
         </header>
         <main id="main-content" class="content">
             <div class="content-width-container">
-                <form>
+                <form id="create-listing-form">
                     <h1>Create new listing</h1>
                     <div class="form-control">
                         <label for="title">Title</label>
@@ -47,16 +38,18 @@
                     </div>
 
                     <div class="form-control">
-                        <label for="media">Media</label>
+                        <label id="media-label">Media</label>
                         <div>
-                            <input type="url" id="media" name="media" />
-                            <button>+<span class="visually-hidden">Add Url</span></button>
+                            <input type="url" class="media-url-input" name="media0" aria-labelledby="media-label" />
+                            <button id="add-media-url-button" type="button">
+                                +<span class="visually-hidden">Add Url</span>
+                            </button>
                         </div>
                     </div>
 
                     <div class="form-control">
-                        <label for="ends_at">Auction Ends</label>
-                        <input type="datetime-local" id="ends_at" name="ends_at" />
+                        <label for="endsAt">Auction Ends</label>
+                        <input id="endsAt" type="datetime-local" name="endsAt" />
                     </div>
                     <button type="submit">Create listing</button>
                 </form>

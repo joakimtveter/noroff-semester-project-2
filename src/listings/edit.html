@@ -7,10 +7,65 @@
         <title>Auction House</title>
     </head>
     <body>
-        <div id="app">
-            <h1>Edit listing</h1>
-        </div>
+        <header class="site-header">
+            <div class="header-container">
+                <div class="branding">
+                    <a href="/">The Auction House</a>
+                </div>
+                <nav class="nav" aria-label="main">
+                    <ul class="nav-list" id="main-navigation-list" role="list">
+                        <li class="nav-item" role="listitem">
+                            <a class="nav-link" href="/listings/index.html">All listings</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main id="main-content" class="content">
+            <div class="content-width-container">
+                <form id="create-listing-form">
+                    <h1>Create new listing</h1>
+                    <div class="form-control">
+                        <label for="title">Title</label>
+                        <input type="text" id="title" name="title" />
+                    </div>
+                    <div class="form-control">
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description"></textarea>
+                    </div>
+                    <div class="form-control">
+                        <label for="tags">Tags</label>
+                        <input type="text" id="tags" name="tags" />
+                    </div>
+
+                    <div class="form-control">
+                        <label id="media-label">Media</label>
+                        <div>
+                            <input
+                                type="url"
+                                id="media"
+                                class="media-url-input"
+                                name="media0"
+                                aria-labelledby="media-label"
+                            />
+                            <button id="add-media-url-button" type="button">
+                                +<span class="visually-hidden">Add Url</span>
+                            </button>
+                        </div>
+                    </div>
+                    <button type="submit">Update listing</button>
+                </form>
+            </div>
+        </main>
+        <footer class="site-footer">
+            <div class="content-width-container">
+                <p class="copyright">
+                    &copy;<span>2023</span> The Auction House. Developed by
+                    <a href="http://joakimtveter.no">Joakim Tveter</a>.
+                </p>
+            </div>
+        </footer>
         <script type="module" src="/js/main.js"></script>
-        <script type="module" src="/js/pages/profile/edit.js"></script>
+        <script type="module" src="/js/pages/listings/edit.js"></script>
     </body>
 </html>
