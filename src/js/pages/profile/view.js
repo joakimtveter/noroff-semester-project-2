@@ -22,7 +22,6 @@ const main = document.getElementById('main-content');
 // Fetch profile data from API and render profile page
 try {
     const profileData = await getSingleProfile(profileName, true);
-    console.log(profileData);
     main.appendChild(renderProfilePage(profileData));
     document.title = `${profileData.name}'s profile | The Auction House`;
 } catch (error) {
