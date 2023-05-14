@@ -4,7 +4,7 @@ import { get } from '../get';
  * Get listings from the API
  * @param {Object} options - Options for the query
  * @param {string} options.sort - The field to sort by
- * @param {string} options.order - The order to sort by
+ * @param {string} options.sortOrder - The order to sort by
  * @param {number} options.limit - The number of listings to return
  * @param {number} options.offset - The offset to start from
  * @param {string} options.tag - The tag to filter by
@@ -19,10 +19,10 @@ function getListings(options = {}) {
     const parameters = [];
 
     if (options.sort) parameters.push(`sort=${options.sort}`);
-    if (options.order) parameters.push(`sort=${options.sort}`);
+    if (options.sortOrder) parameters.push(`sortOrder=${options.sortOrder}`);
     if (options.limit) parameters.push(`limit=${options.limit}`);
     if (options.offset) parameters.push(`offset=${options.offset}`);
-    if (options.tag) parameters.push(`tag=${options.tag}`);
+    if (options.tag) parameters.push(`_tag=${options.tag}`);
     if (options.active) parameters.push(`_active=${options.active}`);
     if (options.seller) parameters.push(`_seller=${options.seller}`);
     if (options.bids) parameters.push(`_bids=${options.bids}`);

@@ -1,4 +1,5 @@
 import { post } from '../post';
+import { reload } from '../../utils';
 import '../../types';
 
 /**
@@ -12,7 +13,8 @@ async function submittBid(id, amount) {
     if (amount < 0) throw new Error('Bid amount cannot be negative');
     const newAmount = parseInt(amount);
     if (typeof newAmount !== 'number') throw new Error('Bid amount must be a number');
-    return await post(`/listings/${id}/bids`, { amount: newAmount });  
+    return await post(`/listings/${id}/bids`, { amount: newAmount });
+    reload(500);
 }
 
-export { submittBid }
+export { submittBid };

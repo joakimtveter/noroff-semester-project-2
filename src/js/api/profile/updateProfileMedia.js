@@ -1,10 +1,12 @@
 import { put } from '../put';
-import { getUserName } from '../../utils';
+import { getUserObject } from '../../utils';
 
-async function updateProfileMedia(avatars) {
-    const username = getUserName();
-    if (!username) throw new Error('No username found');
-    put(`/profiles/${username}/media`, { avatar: avatars });
+async function updateProfileMedia(newAvatar) {
+    const user = getUserObject();
+    if (!user.name) throw new Error('No username found');
+    put(`/profiles/${user.name}/media`, { avatar: newAvatar });
+    user.avatar = newAvatar;
+    localStorage.setItem('user', JSON.stringify(user));
 }
 
 export { updateProfileMedia };
