@@ -5,6 +5,7 @@
  * @returns {boolean} - Whether or not the string has above the minimum characters.
  */
 function stringIsLongerThan(string, minLength = 1) {
+    if (string === '' || string === undefined) return false;
     if (string && string.length >= minLength) return true;
     return false;
 }

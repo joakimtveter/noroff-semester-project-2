@@ -1,5 +1,6 @@
 import { createListing } from '../../api/listings/createListing';
 import { createHtmlElement, formatDateforDatepicker, redirect } from '../../utils';
+import { handleFormErrors, clearFormErrors, validateCreateListingForm } from '../../validation';
 
 const form = document.getElementById('create-listing-form');
 const addButton = document.getElementById('add-media-url-button');
@@ -24,8 +25,8 @@ addButton.addEventListener('click', (event) => {
     mediaInputCount++;
 });
 
-form.addEventListener('submit', (event) => {
-    event.preventDefault();
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
     const formData = new FormData(form);
     const title = formData.get('title');
     const description = formData.get('description');
@@ -50,6 +51,14 @@ form.addEventListener('submit', (event) => {
         endsAt,
     };
 
-    createListing(data);
-    redirect('/profile.html', 1000);
+    const errors = validateCreateListingForm(data);
+    if (errors.length > 0) {
+        if (errors.length > 0) {
+            handleFormErrors(e.target, errors);
+        } else {
+            clearFormErrors(e.target);
+            createListing(data);
+            redirect('/profile.html', 1000);
+        }
+    }
 });

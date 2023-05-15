@@ -45,10 +45,12 @@ function renderSingleListing(listing) {
     body.appendChild(titleElement);
 
     if (isSeller) {
-        const editLink = createHtmlElement('a', 'listing-edit-link', 'Edit listing', {
-            href: `/listings/edit.html?id=${id}`,
-        });
-        body.appendChild(editLink);
+        if (!auctionIsOver) {
+            const editLink = createHtmlElement('a', 'listing-edit-link', 'Edit listing', {
+                href: `/listings/edit.html?id=${id}`,
+            });
+            body.appendChild(editLink);
+        }
 
         const deleteButton = createHtmlElement('button', 'listing-delete-button', 'Delete listing');
         deleteButton.addEventListener('click', () => {
