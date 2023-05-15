@@ -47,10 +47,10 @@ try {
     const highlight1Title = createHtmlElement('h2', 'highlight__title', headlineListings[0].title);
     const highlight2Title = createHtmlElement('h2', 'highlight__title', headlineListings[1].title);
     const highlight1Link = createHtmlElement('a', 'highlight__link', 'View Listing', {
-        href: `/listing/index.html?id=${headlineListings[0].id}`,
+        href: `/listings/single.html?id=${headlineListings[0].id}`,
     });
     const highlight2Link = createHtmlElement('a', 'highlight__link', 'View Listing', {
-        href: `/listing/index.html?id=${headlineListings[1].id}`,
+        href: `/listings/single.html?id=${headlineListings[1].id}`,
     });
 
     highlight1.appendChild(highlightImage1);
