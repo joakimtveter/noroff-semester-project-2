@@ -61,6 +61,12 @@ try {
     highlight2Content.appendChild(highlight2Title);
     highlight2Content.appendChild(highlight2Link);
     highlight2.appendChild(highlight2Content);
+    highlight1.addEventListener('click', () => {
+        window.location.href = `/listings/single.html?id=${headlineListings[0].id}`;
+    });
+    highlight2.addEventListener('click', () => {
+        window.location.href = `/listings/single.html?id=${headlineListings[1].id}`;
+    });
 } catch (error) {
     console.error(error);
     showToast('error', error.message);

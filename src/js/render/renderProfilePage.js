@@ -28,7 +28,7 @@ function renderProfilePage(profile) {
         const creditsElement = createHtmlElement('p', 'profile-credits', `Available credits: ${credits} kr`);
         infoContainer.appendChild(creditsElement);
 
-        const editAvatarButton = createHtmlElement('button', 'profile-edit-avatar-button', 'Edit Avatar');
+        const editAvatarButton = createHtmlElement('button', 'button outlined primary', 'Edit Avatar');
         editAvatarButton.addEventListener('click', () => {
             document.getElementById('edit-avatar-modal').showModal();
         });
@@ -44,14 +44,16 @@ function renderProfilePage(profile) {
             placeholder: 'Avatar URL',
             required: true,
         });
-        const editAvatarSubmit = createHtmlElement('button', null, 'Save', { type: 'submit' });
-        const editAvatarCancel = createHtmlElement('button', null, 'Cancel', { type: 'button' });
+        const dialogButtonGroup = createHtmlElement('div', 'button-group end');
+        const editAvatarSubmit = createHtmlElement('button', 'button contained primary', 'Save', { type: 'submit' });
+        const editAvatarCancel = createHtmlElement('button', 'button text', 'Cancel', { type: 'button' });
 
         editAvatarFormControl.appendChild(editAvatarLabel);
         editAvatarFormControl.appendChild(editAvatarInput);
         editAvatarForm.appendChild(editAvatarFormControl);
-        editAvatarForm.appendChild(editAvatarCancel);
-        editAvatarForm.appendChild(editAvatarSubmit);
+        editAvatarFormControl.appendChild(dialogButtonGroup);
+        dialogButtonGroup.appendChild(editAvatarCancel);
+        dialogButtonGroup.appendChild(editAvatarSubmit);
         editAvatarDialog.appendChild(editAvatarForm);
         header.appendChild(editAvatarDialog);
 
@@ -68,7 +70,7 @@ function renderProfilePage(profile) {
             reload(1000);
         });
 
-        const logoutButton = createHtmlElement('button', 'profile-logout-button', 'Logout');
+        const logoutButton = createHtmlElement('button', 'button contained primary', 'Logout');
         logoutButton.addEventListener('click', () => {
             logout();
         });
