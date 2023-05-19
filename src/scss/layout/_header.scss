@@ -1,5 +1,13 @@
+@use '../base/typography' as type;
+@use '../base/colors' as color;
+@use '../abstracts/variables' as *;
+
 .site-header {
-    background-color: #ede513;
+    background-color: color.$primary-500;
+
+    .branding {
+        padding-block: 1rem;
+    }
 
     .header-container {
         display: flex;
@@ -7,12 +15,24 @@
         align-items: center;
         max-width: 1200px;
         margin-inline: auto;
+
+        @media ($mq-mobile-down) {
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 0;
+        }
     }
 
     .nav-list {
         display: flex;
         align-items: center;
         gap: 1rem;
+        @media ($mq-mobile-down) {
+            justify-content: center;
+            margin: 0;
+            padding-inline: 0;
+            padding-block: 0.5rem;
+        }
     }
 
     .nav-item {
@@ -22,6 +42,11 @@
             font-weight: 700;
             &:hover {
                 text-decoration: underline;
+            }
+
+            @media ($mq-mobile-down) {
+                font-size: type.$font-size-2;
+                font-weight: 400;
             }
         }
 

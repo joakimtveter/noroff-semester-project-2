@@ -1,18 +1,32 @@
+@use '../abstracts/variables' as *;
+
 .highlight-section {
     background-color: lightgray;
     display: grid;
     grid-template-columns: 1fr 1fr;
 
+    @media ($mq-mobile-down) {
+        grid-template-columns: 1fr;
+    }
+
     img {
         width: 100%;
-        max-height: 600px;
+        max-height: 750px;
         object-fit: cover;
+        transition: all 0.3s ease-in-out;
     }
 
     #highlight1,
     #highlight2 {
         position: relative;
+        cursor: pointer;
+        overflow: hidden;
+
+        &:hover img {
+            transform: scale(1.1);
+        }
     }
+
     .highlight__content {
         position: absolute;
         bottom: 0;

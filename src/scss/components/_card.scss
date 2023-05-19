@@ -1,26 +1,65 @@
 @use '../base/typography' as type;
-@use '../base/palette' as color;
+@use '../base/palette' as palette;
+@use '../base/colors' as color;
 
 .listing-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 1rem;
     padding: 0;
+    margin-block-end: 1rem;
+
+    & + a {
+        text-decoration: none;
+        color: inherit;
+        width: fit-content;
+        margin-left: auto;
+        display: block;
+        font-weight: 600;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 
     .card {
         border: 1px solid #ccc;
         cursor: pointer;
         max-width: 500px;
         list-style-type: none;
+        overflow: hidden;
+
+        &:hover .card-image,
+        &:focus-within .card-image {
+            transform: scale(1.1);
+        }
+
+        &:focus-within {
+            outline: 3px solid color.$primary-500;
+            outline-offset: 5px;
+        }
 
         .card-image {
             width: 100%;
             object-fit: cover;
             aspect-ratio: 5 / 4;
+            transition: all 0.3s ease-in-out;
         }
 
         .card-body {
             padding: 1rem;
+            background-color: #fff;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
 
         .card-title {
@@ -40,28 +79,36 @@
             font-size: type.$font-size-n1;
             padding: 0.2rem 0.5rem;
             border-radius: 1000px;
-            background-color: color.$amber-A400;
+            background-color: palette.$amber-A400;
         }
 
         .card-tag:nth-child(2) {
-            background-color: color.$yellow-A400;
+            background-color: palette.$yellow-A400;
         }
 
         .card-tag:nth-child(3) {
-            background-color: color.$teal-A400;
+            background-color: palette.$teal-A400;
         }
 
         .card-tag:nth-child(4) {
-            background-color: color.$purple-A100;
+            background-color: palette.$purple-A100;
         }
 
         .card-tag:nth-child(5) {
-            background-color: color.$grey-A200;
+            background-color: palette.$grey-A200;
         }
 
         .card-description {
             font-size: type.$font-size-1;
             margin-bottom: 0.5rem;
+        }
+        .card-current-bid {
+            font-size: type.$font-size-2;
+            font-weight: 600;
+        }
+        .card-time-left {
+            font-size: type.$font-size-1;
+            color: color.$text-secondary;
         }
     }
 }

@@ -1,4 +1,6 @@
-@use '../base/typography' as *;
+@use '../base/typography' as type;
+@use '../base/colors' as color;
+@use '../abstracts/variables' as *;
 
 .form-control {
     display: flex;
@@ -6,7 +8,7 @@
     margin-bottom: 1rem;
 
     label {
-        font-size: $font-size-1;
+        font-size: type.$font-size-1;
         font-weight: 600;
         margin-bottom: 0.25rem;
     }
@@ -16,12 +18,51 @@
         margin-bottom: 0.25rem;
     }
     a[href] {
-        font-size: $font-size-2;
+        font-size: type.$font-size-2;
         text-align: center;
         text-decoration: none;
 
         &:hover {
             text-decoration: underline;
         }
+    }
+}
+
+.search-form {
+    padding: 3rem;
+    margin-block-end: 2rem;
+    background-color: color.$primary-100;
+    gap: 0;
+    margin-bottom: 1rem;
+
+    @media ($mq-mobile-down) {
+        margin-block-start: 0;
+    }
+
+    .search-container {
+        display: flex;
+        justify-content: center;
+
+        &:focus-within {
+            outline: 3px solid color.$primary-500;
+            outline-offset: 5px;
+        }
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 0.5rem 1rem;
+        border: 2px solid currentColor;
+        border-radius: 10px 0 0 10px;
+        outline: none;
+    }
+
+    .search {
+        width: 50px;
+        padding: 0.5rem;
+        border: 2px solid currentColor;
+        border-radius: 0 10px 10px 0;
+        background-color: color.$primary-500;
+        border-left: none;
     }
 }

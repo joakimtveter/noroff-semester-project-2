@@ -1,5 +1,5 @@
 @use '../base/typography' as *;
-@use '../base/palette' as color;
+@use '../base/colors' as color;
 
 .page.profile {
     .profile-header {
@@ -18,7 +18,7 @@
         height: 100px;
         border-radius: 50%;
         object-fit: cover;
-        background-color: color.$yellow-500;
+        background-color: color.$primary-500;
     }
 
     .profile-info-container {
@@ -34,6 +34,6 @@
     .profile-credits {
         font-size: $font-size-1;
         font-weight: 600;
-        color: color.$yellow-800;
+        color: color.$primary-500;
     }
 }

@@ -1,26 +1,5 @@
 @use './palette' as palette;
 
-$warning: #eda302;
-$warning-light: #fdc968;
-$warning-dark: #b87d00;
-$warning-background: #fee4b4;
-
-$error: #d33131;
-$error-light: #f05e5c;
-$error-dark: #c72929;
-$error-background: #f8bab9;
-
-$info: #0287cf;
-$info-light: #35befd;
-$info-dark: #01599d;
-$info-background: #b3e6fe;
-
-$success: #2f7f33;
-$success-light: #70c273;
-$success-dark: #1c5f20;
-$success-background: #cae8cb;
-
-
 $primary-50: palette.$deep-orange-50;
 $primary-100: palette.$deep-orange-100;
 $primary-200: palette.$deep-orange-200;
@@ -80,6 +59,26 @@ $neutral-A100: palette.$grey-A100;
 $neutral-A200: palette.$grey-A200;
 $neutral-A400: palette.$grey-A400;
 $neutral-A700: palette.$grey-A700;
+
+$warning: #eda302;
+$warning-light: #fdc968;
+$warning-dark: #b87d00;
+$warning-background: #fee4b4;
+
+$error: #d33131;
+$error-light: #f05e5c;
+$error-dark: #c72929;
+$error-background: #f8bab9;
+
+$info: #0287cf;
+$info-light: #35befd;
+$info-dark: #01599d;
+$info-background: #b3e6fe;
+
+$success: #2f7f33;
+$success-light: #70c273;
+$success-dark: #1c5f20;
+$success-background: #cae8cb;
 
 $text-primary: hsla(0, 0%, 0%, 0.87);
 $text-secondary: hsla(0, 0%, 0%, 0.6);

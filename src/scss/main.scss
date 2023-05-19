@@ -18,10 +18,11 @@
 // @use 'layout/feedHeader';
 // @use 'layout/footer';
 // @use 'layout/navigation';
+@use 'components/listing';
 @use 'components/card';
 @use 'components/forms';
 @use 'components/highlightSection';
-// @use 'components/buttons';
+@use 'components/buttons';
 // @use 'components/tables';
 // @use 'components/figures';
 // @use 'components/avatar';

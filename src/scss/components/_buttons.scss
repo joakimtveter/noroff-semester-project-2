@@ -1,0 +1,193 @@
+@use '../abstracts/variables' as *;
+@use '../base/colors' as color;
+@use '../base/typography' as *;
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 1.5rem;
+    padding: 0;
+    width: 100%;
+
+    &.start {
+        justify-content: flex-start;
+    }
+
+    &.end {
+        justify-content: flex-end;
+    }
+}
+
+button,
+.button {
+    cursor: pointer;
+    &:disabled {
+        cursor: not-allowed;
+    }
+}
+
+button,
+.button {
+    text-decoration: none;
+    &.contained {
+        border: 2px solid color.$transparent;
+        border-radius: 100px;
+        min-height: 2.5rem;
+        min-width: 2.5rem;
+        padding: 0.25rem 1.5rem;
+        text-align: center;
+        user-select: none;
+
+        @media #{$mq-mobile-down} {
+            font-size: $font-size-1;
+        }
+
+        &.primary {
+            color: color.$dark-mode-text-primary;
+            background-color: color.$primary-500;
+            border-color: color.$primary-500;
+
+            &:hover,
+            &:focus {
+                background-color: color.$primary-700;
+                border-color: color.$primary-700;
+            }
+            &:active {
+                background-color: color.$primary-800;
+                border-color: color.$primary-800;
+            }
+            &:disabled {
+                color: color.$text-disabled;
+                background-color: color.$primary-100;
+                border-color: color.$primary-100;
+            }
+        }
+
+        &.accent {
+            color: color.$text-primary;
+            background-color: color.$accent-500;
+            border-color: color.$accent-500;
+
+            &:focus,
+            &:hover {
+                background-color: color.$accent-600;
+                border-color: color.$accent-600;
+            }
+            &:disabled {
+                color: color.$text-disabled;
+                background-color: color.$accent-100;
+            }
+        }
+
+        &.white {
+            color: color.$text-primary;
+            background-color: color.$neutral-50;
+            border-color: color.$neutral-50;
+
+            &:focus,
+            &:hover {
+                background-color: color.$neutral-300;
+                border-color: color.$neutral-300;
+            }
+            &:disabled {
+                color: color.$text-disabled;
+                background-color: color.$accent-100;
+            }
+        }
+    }
+
+    &.outlined {
+        border-radius: 100px;
+        max-width: 480px;
+        min-height: 40px;
+        min-width: 40px;
+        padding: 5px 25px;
+        text-align: center;
+        user-select: none;
+
+        &.primary {
+            color: color.$primary-800;
+            background-color: color.$transparent;
+            border: 2px solid color.$primary-500;
+
+            &:focus,
+            &:hover {
+                background-color: color.$primary-50;
+            }
+            &:disabled {
+                color: color.$text-disabled;
+                background-color: color.$transparent;
+                border: 2px solid color.$primary-100;
+            }
+        }
+
+        &.accent {
+            color: color.$dark-mode-text-primary;
+            background-color: color.$transparent;
+            border: 2px solid color.$accent-500;
+
+            &:focus {
+                color: color.$text-disabled;
+                background-color: color.$accent-500;
+            }
+            &:disabled {
+                color: color.$text-disabled;
+                background-color: color.$transparent;
+                border: 2px solid color.$accent-100;
+            }
+        }
+    }
+
+    &.text {
+        border: none;
+        background-color: transparent;
+        padding: 0.25rem 0.5rem;
+        font-size: 80%;
+        font-weight: 600;
+        text-transform: uppercase;
+        text-align: center;
+        min-width: 40px;
+        color: currentColor;
+
+        &:hover,
+        &:focus {
+            background-color: hsla(0, 0%, 0%, 0.1);
+        }
+
+        &.primary {
+            color: color.$primary-500;
+            background-color: color.$transparent;
+            border: 2px solid color.$transparent;
+
+            &:disabled {
+                color: color.$primary-100;
+                background-color: color.$transparent;
+                border: 2px solid color.$transparent;
+            }
+        }
+
+        &.accent {
+            color: color.$accent-500;
+
+            &:disabled {
+                color: color.$accent-100;
+                background-color: color.$transparent;
+                border: 2px solid color.$transparent;
+            }
+        }
+
+        &.error {
+            color: color.$error;
+
+            &:hover,
+            &:focus {
+                background-color: hsla(0, 0%, 0%, 0.1);
+            }
+
+            &:disabled {
+                opacity: 0.65;
+            }
+        }
+    }
+}
