@@ -1,5 +1,6 @@
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
+import autoprefixer from 'autoprefixer';
 
 const root = resolve(__dirname, 'src');
 const outDir = resolve(__dirname, 'dist');
@@ -8,6 +9,14 @@ const publicDir = resolve(__dirname, 'public');
 // https://vitejs.dev/config/
 export default defineConfig({
     root,
+    css: {
+        postcss: {
+            plugins: [
+                autoprefixer({}), // add options if needed
+            ],
+        },
+        devSourcemap: true,
+    },
     build: {
         outDir,
         emptyOutDir: true,
