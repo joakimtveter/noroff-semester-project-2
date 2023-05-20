@@ -6,7 +6,7 @@
     grid-template-columns: 1fr 1fr;
 
     @media ($mq-mobile-down) {
-        grid-template-columns: 1fr;
+        display: none;
     }
 
     img {

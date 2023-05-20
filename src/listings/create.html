@@ -41,9 +41,14 @@
                     <div class="form-control">
                         <label id="media-label">Media</label>
                         <div>
-                            <input type="url" class="media-url-input" name="media0" aria-labelledby="media-label" />
-                            <button id="add-media-url-button" type="button">
-                                +<span class="visually-hidden">Add Url</span>
+                            <input
+                                type="url"
+                                class="media-url-input mbe-1"
+                                name="media0"
+                                aria-labelledby="media-label"
+                            />
+                            <button id="add-media-url-button" type="button" class="button outlined primary">
+                                Add another image
                             </button>
                         </div>
                     </div>
@@ -52,14 +57,14 @@
                         <label for="endsAt">Auction Ends</label>
                         <input id="endsAt" type="datetime-local" name="endsAt" />
                     </div>
-                    <button type="submit">Create listing</button>
+                    <button type="submit" class="button contained primary">Create listing</button>
                 </form>
             </div>
         </main>
         <footer class="site-footer">
             <div class="content-width-container">
                 <p class="copyright">
-                    &copy;<span>2023</span> The Auction House. Developed by
+                    &copy;<span id="copyright-year">2023</span> The Auction House. Developed by
                     <a href="http://joakimtveter.no">Joakim Tveter</a>.
                 </p>
             </div>

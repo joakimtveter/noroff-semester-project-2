@@ -10,6 +10,10 @@ body {
 .content-width-container {
     max-width: 1200px;
     margin-inline: auto;
+
+    @media ($mq-mobile-down) {
+        padding-inline: 1rem;
+    }
 }
 
 .full-width-container {
@@ -236,6 +240,30 @@ body {
 
 .mb-5 {
     margin-block: $spaceing-5;
+}
+
+.mbe-0 {
+    margin-block-end: 0;
+}
+
+.mbe-1 {
+    margin-block-end: $spaceing-1;
+}
+
+.mbe-2 {
+    margin-block-end: $spaceing-2;
+}
+
+.mbe-3 {
+    margin-block-end: $spaceing-3;
+}
+
+.mbe-4 {
+    margin-block-end: $spaceing-4;
+}
+
+.mbe-5 {
+    margin-block-end: $spaceing-5;
 }
 
 .truncate {

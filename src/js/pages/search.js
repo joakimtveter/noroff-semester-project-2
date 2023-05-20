@@ -8,11 +8,11 @@ const searchResultsContainer = document.getElementById('search-results');
 
 if (searchTerm) searchInput.value = searchTerm;
 
-const allListings = await getListings({ sort: 'created', bids: true, active: true });
+const allListings = await getListings({ sort: 'created', bids: true, active: true, seller: true });
 const searchResults = allListings.filter((listing) => {
     if (listing.title.toLowerCase().includes(searchTerm.toLowerCase())) return true;
     if (listing?.description && listing?.description.toLowerCase().includes(searchTerm.toLowerCase())) return true;
-    if (listing.seller.name.toLowerCase().includes(searchTerm.toLowerCase())) return true;
+    if (listing?.seller && listing?.seller.name.toLowerCase().includes(searchTerm.toLowerCase())) return true;
     if (listing?.tags && listing.tags.forEach((tag) => tag.toLowerCase().includes(searchTerm.toLowerCase())))
         return true;
     return false;

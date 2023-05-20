@@ -60,25 +60,21 @@ $neutral-A200: palette.$grey-A200;
 $neutral-A400: palette.$grey-A400;
 $neutral-A700: palette.$grey-A700;
 
-$warning: #eda302;
-$warning-light: #fdc968;
-$warning-dark: #b87d00;
-$warning-background: #fee4b4;
+$warning: #ffa200;
+$warning-dark: #c5810d;
+$warning-background: #ffdda3;
 
-$error: #d33131;
-$error-light: #f05e5c;
-$error-dark: #c72929;
-$error-background: #f8bab9;
+$error: #c72929;
+$error-dark: #831b1b;
+$error-background: #eab3b3;
 
-$info: #0287cf;
-$info-light: #35befd;
-$info-dark: #01599d;
-$info-background: #b3e6fe;
+$info: #303fa1;
+$info-dark: #171f4f;
+$info-background: #8a91c1;
 
-$success: #2f7f33;
-$success-light: #70c273;
-$success-dark: #1c5f20;
-$success-background: #cae8cb;
+$success: #008a7c;
+$success-dark: #005c53;
+$success-background: #77bbb4;
 
 $text-primary: hsla(0, 0%, 0%, 0.87);
 $text-secondary: hsla(0, 0%, 0%, 0.6);

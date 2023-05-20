@@ -2,6 +2,17 @@
 @use '../base/colors' as color;
 @use '../abstracts/variables' as *;
 
+form {
+    max-width: 800px;
+
+    input {
+        width: 100%;
+    }
+    input + input {
+        margin-block-end: 1rem;
+    }
+}
+
 .form-control {
     display: flex;
     flex-direction: column;
@@ -34,6 +45,8 @@
     background-color: color.$primary-100;
     gap: 0;
     margin-bottom: 1rem;
+    max-width: 2600px;
+    margin-inline: auto;
 
     @media ($mq-mobile-down) {
         margin-block-start: 0;
@@ -42,6 +55,8 @@
     .search-container {
         display: flex;
         justify-content: center;
+        max-width: 800px;
+        margin-inline: auto;
 
         &:focus-within {
             outline: 3px solid color.$primary-500;
