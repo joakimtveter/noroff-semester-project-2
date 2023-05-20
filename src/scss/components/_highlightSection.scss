@@ -1,7 +1,9 @@
 @use '../abstracts/variables' as *;
+@use '../base/palette' as palette;
+@use '../base/colors' as color;
 
 .highlight-section {
-    background-color: lightgray;
+    background-color: palette.$grey-200;
     display: grid;
     grid-template-columns: 1fr 1fr;
 
@@ -32,7 +34,7 @@
         bottom: 0;
         left: 0;
         right: 0;
-        color: rgb(255, 255, 255);
+        color: color.$dark-mode-text-primary;
         background-color: rgba(0, 0, 0, 0.7);
         padding: 2rem;
     }

@@ -1,3 +1,5 @@
+@use '../base/palette' as palette;
+
 .image-container {
     padding: 1rem;
 
@@ -20,7 +22,7 @@
 
     .thumbnail {
         height: 100px;
-        border: 1px solid #000;
+        border: 1px solid palette.$grey-500;
         cursor: pointer;
     }
 }

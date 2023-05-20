@@ -1,7 +1,4 @@
 // Configuration
-// @use 'abstracts/variables';
-// @use 'abstracts/mixins';
-// @use 'themes/default';
 
 // Vendors (if any)
 
@@ -15,25 +12,14 @@
 @use 'layout/layout';
 @use 'layout/header';
 @use 'layout/footer';
-// @use 'layout/feedHeader';
-// @use 'layout/footer';
-// @use 'layout/navigation';
 @use 'components/listing';
 @use 'components/card';
 @use 'components/forms';
 @use 'components/highlightSection';
 @use 'components/buttons';
-// @use 'components/tables';
-// @use 'components/figures';
-// @use 'components/avatar';
-// @use 'components/post';
-// @use 'components/profileCards';
-// @use 'components/toasts';
-// @use 'components/loadingSpinner';
 @use 'components/photos';
 
 // Page-specific styles
-@use 'pages/singleListing';
 @use 'pages/profile';
 
 //Accessabillity
@@ -46,7 +32,7 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
 
-    --outline-color: lime;
+    --outline-color: #{color.$primary-300};
 }
 
 input[type='number'] {

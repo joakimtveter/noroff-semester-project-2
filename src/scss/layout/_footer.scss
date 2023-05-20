@@ -1,9 +1,12 @@
+@use '../base/palette' as palette;
+@use '../base/colors' as color;
+
 .site-footer {
-    background-color: #26272b;
+    background-color: palette.$grey-900;
     padding-block: 20px;
     font-size: 15px;
     line-height: 24px;
-    color: #ffffff;
+    color: color.$dark-mode-text-primary;
 
     .copyright {
         text-align: center;

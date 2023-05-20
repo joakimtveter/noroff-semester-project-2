@@ -1,5 +1,5 @@
 @use '../abstracts/variables' as *;
-@use '../base/typography' as *;
+@use '../base/typography' as type;
 @use '../base/colors' as color;
 @use '../base/palette' as palette;
 
@@ -63,7 +63,7 @@
         background-color: color.$neutral-300;
 
         span {
-            font-size: $font-size-5;
+            font-size: type.$font-size-5;
             text-transform: uppercase;
         }
     }

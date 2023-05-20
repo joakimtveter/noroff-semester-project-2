@@ -1,6 +1,7 @@
 @use '../base/typography' as type;
 @use '../base/palette' as palette;
 @use '../base/colors' as color;
+@use '../abstracts/variables' as *;
 
 .listing-container {
     display: grid;
@@ -23,7 +24,8 @@
     }
 
     .card {
-        border: 1px solid #ccc;
+        // border: 1px solid palette.$grey-500;
+        box-shadow: $box-shadow-300;
         cursor: pointer;
         max-width: 500px;
         list-style-type: none;
@@ -35,7 +37,7 @@
         }
 
         &:focus-within {
-            outline: 3px solid color.$primary-500;
+            outline: 3px solid var(--outline-color);
             outline-offset: 5px;
         }
 

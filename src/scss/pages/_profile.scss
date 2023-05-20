@@ -1,4 +1,4 @@
-@use '../base/typography' as *;
+@use '../base/typography' as type;
 @use '../base/colors' as color;
 
 .page.profile {
@@ -12,7 +12,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: $font-size-5;
+        font-size: type.$font-size-5;
         text-transform: uppercase;
         width: 100px;
         height: 100px;
@@ -32,7 +32,7 @@
     }
 
     .profile-credits {
-        font-size: $font-size-1;
+        font-size: type.$font-size-1;
         font-weight: 600;
         color: color.$primary-500;
     }

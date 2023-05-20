@@ -1,6 +1,6 @@
 @use '../abstracts/variables' as *;
 @use '../base/colors' as color;
-@use '../base/typography' as *;
+@use '../base/typography' as type;
 
 .button-group {
     display: flex;
@@ -32,7 +32,7 @@ button,
     text-decoration: none;
 
     @media #{$mq-mobile-down} {
-        font-size: $font-size-1;
+        font-size: type.$font-size-1;
     }
 
     &.contained {
