@@ -1,6 +1,6 @@
-import { showToast, getUserName, getValueFromURLParameter } from '../../utils';
-import { getSingleProfile } from '../../api';
-import { renderProfilePage } from '../../render';
+import { showToast, getUserName, getValueFromURLParameter } from '../utils';
+import { getSingleProfile } from '../api';
+import { renderProfilePage } from '../render';
 
 const userName = getUserName();
 const userId = getValueFromURLParameter('user');

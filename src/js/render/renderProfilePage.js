@@ -1,6 +1,6 @@
 import { createHtmlElement, getValueFromURLParameter, logout, reload } from '../utils';
 import { renderListingCard } from '../render';
-import { updateProfileMedia } from '../api';
+import { updateProfileMedia, getListingById } from '../api';
 
 function renderProfilePage(profile) {
     const { name, credits, avatar, wins, listings } = profile;
@@ -102,15 +102,12 @@ function renderProfilePage(profile) {
         const winsTitle = createHtmlElement('h2', 'profile-wins-title', `Won auctions – ${wins.length}`);
         winsContainer.appendChild(winsTitle);
 
-        const winsList = createHtmlElement('ul', 'profile-wins-list');
+        const winsList = createHtmlElement('ul', 'listing-container');
 
-        wins.forEach((win, i) => {
-            const winItem = createHtmlElement('li', 'profile-wins-list-item');
-            const winLink = createHtmlElement('a', null, `View listing ${i + 1}`, {
-                href: `/listings/single.html?id=${win}`,
-            });
-            winItem.appendChild(winLink);
-            winsList.appendChild(winItem);
+        wins.forEach(async (listing) => {
+            const data = await getListingById(listing);
+            const item = renderListingCard(data);
+            winsList.appendChild(item);
         });
         winsContainer.appendChild(winsList);
     }
