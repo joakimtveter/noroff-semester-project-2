@@ -1,4 +1,4 @@
-# Noroff Semester Project 2
+# Noroff Semester Project 2 - Auction House
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/6d6136d3-77d4-4add-a584-81b2c734a25a/deploy-status)](https://app.netlify.com/sites/noroff-sp2/deploys)
 
@@ -8,7 +8,7 @@ This is my submission for the second year semester project for the [Noroff Front
 
 ## Description
 
-### Brief
+### Project Brief
 
 The brief for this project was to create an auction house website.
 When a new user joins the website, they are given 1000 credits to use on the site.
