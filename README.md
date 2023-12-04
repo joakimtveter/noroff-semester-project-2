@@ -2,71 +2,42 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/6d6136d3-77d4-4add-a584-81b2c734a25a/deploy-status)](https://app.netlify.com/sites/noroff-sp2/deploys)
 
-- [Project Gantt Chart](https://github.com/users/joakimtveter/projects/4/views/2)
-- [Design Prototype](https://www.figma.com/file/Y3CjolhcZXeFWXQjFWMLJO/Noroff-Semester-Project-2?type=design&node-id=7%3A2&t=7dsly4Yyi6vp7HHS-1)
-- [Style Guide](https://www.figma.com/file/Y3CjolhcZXeFWXQjFWMLJO/Noroff-Semester-Project-2?type=design&node-id=0%3A1&t=7dsly4Yyi6vp7HHS-1)
-- [Project Kanban Board](https://github.com/users/joakimtveter/projects/4/views/1)
-- [Repository](https://github.com/joakimtveter/noroff-semester-project-2)
-- [Deployed Demo](https://noroff-sp2.netlify.app/).
+![image](https://sp2.tveter,dev/screenshot.png)
 
-## Local Development
+This is my submission for the second year semester project for the [Noroff Frontend Development course](https://www.noroff.no/en/studies/vocational-school/front-end-development).
 
-This project is built using [Vite.js](https://vitejs.dev/). To get started, clone the repository and run the following commands:
+## Description
 
-```bash
-npm install
-npm run dev
-```
+### Brief
 
-## Deployment
+The brief for this project was to create an auction house website.
+When a new user joins the website, they are given 1000 credits to use on the site.
+They can get credits by selling items and use credit by buying items. 
+Non-registered users can search through the listings, but only registered users can make bids on listings.
 
-This project is automaticly deployed to [Netlify](https://www.netlify.com/).
-Any commit to the `main`-branch will trigger a new deployment.
+### Technology stack
 
-## Project Brief
+- HTML & Javascript
+- [Vite.js](https://vitejs.dev/) as the build tool and development server
+- [SCSS](https://sass-lang.com/) for styling
+- [Autoprefixer](https://autoprefixer.github.io/) & [PostCSS](https://postcss.org/) plugins for styling
 
-An auction site is looking to launch a website where users can add items to be bid on and bid on items other users have put up for auction.
+### Getting Started
 
-When a new user joins the website, they are given 1000 credits to use on the site. They can get credits by selling items and use credit by buying items. Non-registered users can search through the listings, but only registered users can make bids on listings.
+1. Clone the repository: `git clone https://github.com/joakimtveter/noroff-semester-project-2.git`
+2. Run `npm install` from inside the project folder to install dependencies.
+3. Run `npm run dev` to start the development server.
 
-### User Stories
+### Deployment
 
-The client has specified the following requirements in the form of User Stories:
+The site is hosted on [Netlify](https://netlify.com/). Any commit to the `main` branch will trigger a deployment.
+The site can be found at [https://sp2.tveter.dev](https://sp2.tveter.dev).
 
-1. A user with a stud.noroff.no email may register
-1. A registered user may login
-1. A registered user may logout
-1. A registered user may update their avatar
-1. A registered user may view their total credit
-1. A registered user may create a Listing with a title, deadline date, media gallery and description
-1. A registered user may add a Bid to another user’s Listing
-1. A registered user may view Bids made on a Listing
-1. An unregistered user may search through Listings
+### Contributing
 
-### Technical restrictions
+This is a school project, so I will not be accepting any contributions.
 
-The company CTO has set the following technical restrictions:
+## Contact
 
-1. Must use an approved CSS Framework
-1. Must be hosted on an approved Static Host
-1. Must use an approved Design Application
-1. Must use an approved Planning Application
+Connect with me on [LinkedIn](https://www.linkedin.com/in/joakim-tveter) or check out [my website](https://joakimtveter.no).
 
-### Required links
-
-The Product Owner has requested links to the following:
-
-1. A Gantt chart for project timing
-1. A design prototype
-1. A style guide
-1. A kanban project board
-1. A repository link
-1. A hosted application demo link
-
-## Delivery
-
-Include the required links in the Moodle delivery window using [this template format](https://content.noroff.dev/semester-project-2/delivery-template.html).
-
-All final changes must be merged into the default branch `main`. Other branches will not be checked.
-
-Ensure that the `readme.md` file describes your project thoroughly, including how to setup and run the project locally and any special instructions for testers.
