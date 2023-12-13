@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/6d6136d3-77d4-4add-a584-81b2c734a25a/deploy-status)](https://app.netlify.com/sites/noroff-sp2/deploys)
 
-![image](https://sp2.tveter,dev/screenshot.png)
+![image](https://sp2.tveter.dev/screenshot.png)
 
 This is my submission for the second year semester project for the [Noroff Frontend Development course](https://www.noroff.no/en/studies/vocational-school/front-end-development).
 
